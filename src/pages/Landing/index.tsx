@@ -12,8 +12,8 @@ function Landing() {
 
     const { navigate } = useNavigation();
 
-    function handleNavigateToGiveClassesPage(){ // serve para ir p/ próxima página, quando eu chamar essa função  vai direcionar para "GiveClasses"
-        navigate('GiveClasses');
+    function handleNavigateToLoginCompany(){ // serve para ir p/ próxima página, quando eu chamar essa função  vai direcionar para "GiveClasses"
+        navigate('LoginCompany');
     };
 
     function handleNavigateToStudyPage(){ // serve para ir p/ próxima página, quando eu chamar essa função  vai direcionar para "GiveClasses"
@@ -35,7 +35,7 @@ function Landing() {
                     <Text style={styles.buttonText}>Estudar</Text>
                 </RectButton>
 
-                <RectButton onPress={handleNavigateToGiveClassesPage} style={[styles.button, styles.buttonSecondary]}> 
+                <RectButton onPress={handleNavigateToLoginCompany} style={[styles.button, styles.buttonSecondary]}> 
                     <Image source={givClassesIcon} />
                     <Text style={styles.buttonText}>Dar Aulas</Text>
                 </RectButton>
