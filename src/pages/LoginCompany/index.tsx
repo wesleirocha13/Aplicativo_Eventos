@@ -5,24 +5,23 @@ import giveClassesbgImage from '../../assets/images/give-classes-background.png'
 import { RectButton, TextInput, TouchableOpacity } from 'react-native-gesture-handler';
 import { useNavigation, Link } from '@react-navigation/native';
 import PageHeader from '../../components/PageHeader';
+import PageHeaderRegister from '../../components/PageHeaderRegister';
 
 function LoginCompany() {
 
     const { goBack } = useNavigation(); // Serve para voltar para a pagina anterior, independente de qual seja
     const { navigate } = useNavigation();
     const [isSelected, setSelection] = useState(false);
-
-    function handleNavigationBack() {
-        goBack();
-    }
-
     function handleNavigateToRegister() { // serve para ir p/ próxima página, quando eu chamar essa função  vai direcionar para "GiveClasses"
+        navigate('DataCompany');
+    };
+    function handleNavigateToforgotPassword() { // serve para ir p/ próxima página, quando eu chamar essa função  vai direcionar para "GiveClasses"
         navigate('DataCompany');
     };
     return (
         <View style={styles.container}>
             <KeyboardAvoidingView behavior="position" enabled>
-                <PageHeader title="Meus proffys favoritos" />
+                <PageHeaderRegister title="Faça login para continuar." />
                 <View style={styles.containerTitle}>
                     <Text style={styles.titleLogin}>Fazer Login</Text>
                 </View>
@@ -50,7 +49,7 @@ function LoginCompany() {
                 </View>
             </KeyboardAvoidingView>
             <View style={styles.containerForm}>
-                <TouchableOpacity onPress={handleNavigateToRegister} style={styles.forgotPassword}>
+                <TouchableOpacity onPress={handleNavigateToforgotPassword} style={styles.forgotPassword}>
                     <Text style={styles.underLineText}>Esqueceu sua senha</Text>
                 </TouchableOpacity>
             </View>
