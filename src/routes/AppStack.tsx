@@ -7,6 +7,8 @@ import StudyTabs from './StudyTabs';
 import DataCompany from '../pages/RegisterCompany/DataCompany';
 import DataAddress from '../pages/RegisterCompany/DataAddress';
 import RegisterSuccess from '../pages/RegisterCompany/RegisterSuccess';
+import ForgotPasswordPage from '../pages/ForgotPassword/ForgotPasswordPage';
+import ForgotPasswordSuccess from '../pages/ForgotPassword/ForgotPasswordSuccess';
 
 const { Navigator, Screen} = createStackNavigator();
 
@@ -21,6 +23,8 @@ function AppStack(){
                 <Screen name="DataCompany" component={DataCompany}/>
                 <Screen name="DataAddress" component={DataAddress}/>
                 <Screen name="RegisterSuccess" component={RegisterSuccess}/>
+                <Screen name="ForgotPasswordPage" component={ForgotPasswordPage}/>
+                <Screen name="ForgotPasswordSuccess" component={ForgotPasswordSuccess}/>
             </Navigator>
         </NavigationContainer>
     );

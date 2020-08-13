@@ -16,7 +16,7 @@ function LoginCompany() {
         navigate('DataCompany');
     };
     function handleNavigateToforgotPassword() { // serve para ir p/ próxima página, quando eu chamar essa função  vai direcionar para "GiveClasses"
-        navigate('DataCompany');
+        navigate('ForgotPasswordPage');
     };
     return (
         <View style={styles.container}>
