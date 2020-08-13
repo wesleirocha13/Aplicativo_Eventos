@@ -30,7 +30,7 @@ const PageHeader: React.FC<PageHeaderProps> = ({ title, headerRight, children}) 
                 <Image source={logoImg} resizeMode="contain" /> 
             </View>
             <View style={styles.header}>
-                <Text style={styles.title}> {title}</Text>
+                <Text style={styles.title}>{title}</Text>
                 {headerRight}
             </View>
             {children}
