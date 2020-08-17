@@ -40,10 +40,6 @@ function Landing() {
                     <Text style={styles.buttonText}>Cadastrar Eventos</Text>
                 </RectButton>
             </View>
-
-            <Text style={styles.totalsConnections}>Total de 200 conexões já realizadas {' '} {/* Esse {' '} serve apenas pra dar um espacinho maroto */} 
-                <Image source={heartIcon}/>
-            </Text>
         </View>
     );
 }

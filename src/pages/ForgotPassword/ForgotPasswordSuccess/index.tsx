@@ -19,7 +19,7 @@ function ForgotPasswordSuccess() {
                     <Text style={styles.textTitle}>Redefinição {'\n'}Enviada!</Text>
                 </View>
                 <View>
-                    <Text style={styles.textDescription}>Agora é só checar o e-mail que lhe foi enviado para voçê poder redefinir sua senha.</Text>
+                    <Text style={styles.textDescription}>Agora é só checar o e-mail que lhe foi enviado para você poder redefinir sua senha.</Text>
                 </View>
             </View>
             <View>
