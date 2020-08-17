@@ -4,6 +4,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import Landing from '../pages/Landing';
 import LoginCompany from '../pages/LoginCompany';
 import StudyTabs from './StudyTabs';
+import MenuDrawer from './MenuDrawer';
 import DataCompany from '../pages/RegisterCompany/DataCompany';
 import DataAddress from '../pages/RegisterCompany/DataAddress';
 import RegisterSuccess from '../pages/RegisterCompany/RegisterSuccess';
@@ -25,6 +26,7 @@ function AppStack(){
                 <Screen name="RegisterSuccess" component={RegisterSuccess}/>
                 <Screen name="ForgotPasswordPage" component={ForgotPasswordPage}/>
                 <Screen name="ForgotPasswordSuccess" component={ForgotPasswordSuccess}/>
+                <Screen name="MenuDrawer" component={MenuDrawer}/>
             </Navigator>
         </NavigationContainer>
     );

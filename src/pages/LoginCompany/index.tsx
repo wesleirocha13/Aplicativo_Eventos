@@ -4,7 +4,6 @@ import styles from './styles';
 import giveClassesbgImage from '../../assets/images/give-classes-background.png'
 import { RectButton, TextInput, TouchableOpacity } from 'react-native-gesture-handler';
 import { useNavigation, Link } from '@react-navigation/native';
-import PageHeader from '../../components/PageHeader';
 import PageHeaderRegister from '../../components/PageHeaderRegister';
 
 function LoginCompany() {
@@ -18,6 +17,11 @@ function LoginCompany() {
     function handleNavigateToforgotPassword() { // serve para ir p/ próxima página, quando eu chamar essa função  vai direcionar para "GiveClasses"
         navigate('ForgotPasswordPage');
     };
+
+    function handleNavigateToMenuDrawer() { 
+        navigate('MenuDrawer');
+    };
+
     return (
         <View style={styles.container}>
             <KeyboardAvoidingView behavior="position" enabled>
@@ -42,7 +46,7 @@ function LoginCompany() {
                             <Text style={styles.underLineText}>Criar uma conta</Text>
                         </TouchableOpacity>
                     </View>
-                    <RectButton style={styles.okButton}>
+                    <RectButton style={styles.okButton} onPress={handleNavigateToMenuDrawer}>
                         <Text style={styles.okButtonText}>Entrar</Text>
                     </RectButton>
 
