@@ -8,18 +8,21 @@ import {
   DrawerItem,
 } from '@react-navigation/drawer';
 import EventList from '../pages/EventList';
+import DataCompany from '../pages/AuthCompany/DataCompany'
 import PageHeaderMenu from '../components/PageHeaderMenu';
 import { Feather } from '@expo/vector-icons';
 
+function MenuDrawer() {
 
 function PageUserData(props: any) {
   return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text>Meus dados</Text>
-      <RectButton onPress={() => props.navigation.toggleDrawer()}>
-        <Text>Meus dados</Text>
-      </RectButton>
-    </View>
+    <DataCompany>
+      <PageHeaderMenu title="    Meus dados">
+        <BorderlessButton onPress={() => props.navigation.toggleDrawer()}>
+          <Feather name="menu" size={30} color={'#FFF'} />
+        </BorderlessButton>
+      </PageHeaderMenu>
+    </DataCompany>
   );
 }
 
@@ -53,7 +56,7 @@ function CustomDrawerContent(props: any) {
 
 const Drawer = createDrawerNavigator();
 
-function MenuDrawer() {
+
   return (
     <Drawer.Navigator initialRouteName="PageEventList" drawerContent={props => <CustomDrawerContent {...props} />}>
       <Drawer.Screen name="Eventos" component={PageEventList} />
