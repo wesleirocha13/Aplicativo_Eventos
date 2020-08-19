@@ -10,6 +10,7 @@ import DataAddress from '../pages/RegisterCompany/DataAddress';
 import RegisterSuccess from '../pages/RegisterCompany/RegisterSuccess';
 import ForgotPasswordPage from '../pages/ForgotPassword/ForgotPasswordPage';
 import ForgotPasswordSuccess from '../pages/ForgotPassword/ForgotPasswordSuccess';
+import EditDataCompany from '../pages/AuthCompany/EditDataCompany'
 
 const { Navigator, Screen} = createStackNavigator();
 
@@ -26,6 +27,7 @@ function AppStack(){
                 <Screen name="RegisterSuccess" component={RegisterSuccess}/>
                 <Screen name="ForgotPasswordPage" component={ForgotPasswordPage}/>
                 <Screen name="ForgotPasswordSuccess" component={ForgotPasswordSuccess}/>
+                <Screen name="EditDataCompany" component={EditDataCompany}/>
                 <Screen name="MenuDrawer" component={MenuDrawer}/>
             </Navigator>
         </NavigationContainer>
