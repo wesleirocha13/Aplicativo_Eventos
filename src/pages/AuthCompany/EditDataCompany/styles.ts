@@ -6,13 +6,6 @@ const styles = StyleSheet.create({
         backgroundColor: '#f0f0f7',
     },
 
-    titleRegister: {
-        fontFamily: 'Archivo_700Bold',
-        fontSize: 23,
-        lineHeight: 37,
-        paddingBottom: 15,
-    },
-
     containerForm:{
         padding:25,
     },

@@ -1,7 +1,6 @@
 import React from 'react';
 import { View, ImageBackground, Text, KeyboardAvoidingView } from 'react-native';
 import styles from './styles';
-import giveClassesbgImage from '../../assets/images/give-classes-background.png'
 import { RectButton, TextInput } from 'react-native-gesture-handler';
 import { useNavigation, Link } from '@react-navigation/native';
 import PageHeaderRegister from '../../../components/PageHeaderRegister';
