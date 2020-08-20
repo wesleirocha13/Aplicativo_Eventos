@@ -13,6 +13,9 @@ import ForgotPasswordSuccess from '../pages/ForgotPassword/ForgotPasswordSuccess
 import EditDataCompany from '../pages/AuthCompany/EditDataCompany'
 import EditDataAddress from '../pages/AuthCompany/EditDataAddress'
 import AddAddress from '../pages/AuthCompany/AddAddress';
+import AddEvent from '../pages/Event/AddEvent';
+import EditEvent from '../pages/Event/EditEvent';
+
 
 const { Navigator, Screen} = createStackNavigator();
 
@@ -32,6 +35,8 @@ function AppStack(){
                 <Screen name="EditDataCompany" component={EditDataCompany}/>
                 <Screen name="EditDataAddress" component={EditDataAddress}/>
                 <Screen name="AddAddress" component={AddAddress}/>
+                <Screen name="AddEvent" component={AddEvent}/>
+                <Screen name="EditEvent" component={EditEvent}/>
                 <Screen name="MenuDrawer" component={MenuDrawer}/>
             </Navigator>
         </NavigationContainer>
