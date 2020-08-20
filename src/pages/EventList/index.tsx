@@ -1,9 +1,11 @@
 import React, { useState, ReactNode } from 'react';
 import { View, Text, Animated } from 'react-native';
 import styles from './styles';
-import TeacherItem from '../../components/TeacherItem';
+import EventItem from '../../components/EventItem';
+import FooterEvent from '../../components/FooterEvent';
 import { ScrollView, TextInput, BorderlessButton, RectButton } from 'react-native-gesture-handler';
 import { Feather } from '@expo/vector-icons';
+import { useNavigation } from '@react-navigation/native';
 
 interface PageHeaderProps {
 
@@ -14,7 +16,12 @@ const EventList: React.FC<PageHeaderProps> = ({ children }) => {
   const [isFiltersVisible, setisFiltersVisible] = useState(false);
   function handleToggleFiltersVisible() {
     setisFiltersVisible(!isFiltersVisible); // Ele vai setar o valor contrário que está no filtro, ex:tava true agora vira false
-  }
+  };
+
+  const { navigate } = useNavigation();
+  function handleNavigateToAddEvent() { // serve para ir p/ próxima página, quando eu chamar essa função  vai direcionar para "GiveClasses"
+    navigate('AddEvent');
+  };
 
   const scrollY = new Animated.Value(0);
   const diffClamp = Animated.diffClamp(scrollY, 0, 65);
@@ -28,12 +35,14 @@ const EventList: React.FC<PageHeaderProps> = ({ children }) => {
       <View style={styles.menu}>
         {children}
       </View>
-      <Animated.View style={{transform: [{ translateY: translateY }], elevation: 2,
-        zIndex: 1, }}>
+      <Animated.View style={{
+        transform: [{ translateY: translateY }], elevation: 2,
+        zIndex: 1,
+      }}>
         <View style={styles.topBarContainer}>
 
           <View style={styles.topBarItens}>
-            <BorderlessButton style={styles.addEvent}>
+            <BorderlessButton style={styles.addEvent} onPress={handleNavigateToAddEvent}>
               <Feather name="plus-circle" size={28} color={'#FFF'} />
               <Text style={styles.addEventLabel}>Adicionar Evento</Text>
             </BorderlessButton>
@@ -67,10 +76,9 @@ const EventList: React.FC<PageHeaderProps> = ({ children }) => {
       </Animated.View>
       <ScrollView onScroll={(e) => { scrollY.setValue(e.nativeEvent.contentOffset.y) }}>
         <View style={styles.item}>
-          <TeacherItem />
-          <TeacherItem />
-          <TeacherItem />
-          <TeacherItem />
+          <EventItem><FooterEvent /></EventItem>
+          <EventItem><FooterEvent /></EventItem>
+          <EventItem><FooterEvent /></EventItem>
         </View>
       </ScrollView>
     </View>
