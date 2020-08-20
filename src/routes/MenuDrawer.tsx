@@ -7,6 +7,7 @@ import DataCompany from '../pages/AuthCompany/DataCompany'
 import DataAddress from '../pages/AuthCompany/DataAddress'
 import PageHeaderMenu from '../components/PageHeaderMenu';
 import { Feather } from '@expo/vector-icons';
+import { useNavigation } from '@react-navigation/native';
 
 function MenuDrawer() {
 
@@ -47,16 +48,16 @@ function PageEventList(props: any) {
 }
  
 function CustomDrawerContent(props: any) {
+  const { navigate } = useNavigation();
+  function handleNavigateToLogin() { // serve para ir p/ próxima página, quando eu chamar essa função  vai direcionar para "GiveClasses"
+      navigate('LoginCompany');
+  };
   return (
     <DrawerContentScrollView {...props}>
       <DrawerItemList {...props} />
       <DrawerItem
-        label="Close drawer"
-        onPress={() => props.navigation.closeDrawer()}
-      />
-      <DrawerItem
-        label="Toggle drawer"
-        onPress={() => props.navigation.toggleDrawer()}
+        label="Sair"
+        onPress={handleNavigateToLogin}
       />
     </DrawerContentScrollView>
   );
