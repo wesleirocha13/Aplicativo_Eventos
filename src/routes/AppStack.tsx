@@ -3,7 +3,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import Landing from '../pages/Landing';
 import LoginCompany from '../pages/LoginCompany';
-import StudyTabs from './StudyTabs';
+import EventTabs from './EventTabs';
 import MenuDrawer from './MenuDrawer';
 import DataCompany from '../pages/RegisterCompany/DataCompany';
 import DataAddress from '../pages/RegisterCompany/DataAddress';
@@ -16,7 +16,6 @@ import AddAddress from '../pages/AuthCompany/AddAddress';
 import AddEvent from '../pages/Event/AddEvent';
 import EditEvent from '../pages/Event/EditEvent';
 
-
 const { Navigator, Screen} = createStackNavigator();
 
 function AppStack(){
@@ -26,7 +25,7 @@ function AppStack(){
                 {/* Screen as telas que eu vou chamar  */}
                 <Screen name="Landing" component={Landing}/>
                 <Screen name="LoginCompany" component={LoginCompany}/>
-                <Screen name="StudyTabs" component={StudyTabs}/>
+                <Screen name="EventTabs" component={EventTabs}/>
                 <Screen name="DataCompany" component={DataCompany}/>
                 <Screen name="DataAddress" component={DataAddress}/>
                 <Screen name="RegisterSuccess" component={RegisterSuccess}/>

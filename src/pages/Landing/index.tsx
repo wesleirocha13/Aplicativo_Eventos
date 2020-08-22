@@ -17,7 +17,7 @@ function Landing() {
     };
 
     function handleNavigateToStudyPage(){ // serve para ir p/ próxima página, quando eu chamar essa função  vai direcionar para "GiveClasses"
-        navigate('StudyTabs');
+        navigate('EventTabs');
     };
 
     return(
