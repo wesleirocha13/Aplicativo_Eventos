@@ -5,19 +5,18 @@ import giveClassesbgImage from '../../assets/images/give-classes-background.png'
 import { RectButton } from 'react-native-gesture-handler';
 import { useNavigation } from '@react-navigation/native';
 import PageHeader from '../../components/PageHeader';
-import TeacherItem from '../../components/TeacherItem';
-
+import EventItem from '../../components/EventItem';
+import FooterEvent from '../../components/FooterEvent';
+import FooterEventFavorite from '../../components/FooterEventFavorite';
 
 function Favorites(){
     return (
         <View style={styles.container}>
-            <PageHeader title="Meus proffys favoritos" />
-            <ScrollView style={styles.teacherList} contentContainerStyle={{ paddingHorizontal: 16, paddingBottom: 24 }} >
-                <TeacherItem/>
-                <TeacherItem/>
-                <TeacherItem/>
-                <TeacherItem/>
-                <TeacherItem/>
+            <PageHeader title="Meus Eventos Favoritos" />
+            <ScrollView style={styles.teacherList} contentContainerStyle={{ paddingHorizontal: 10, paddingBottom: 24 }} >
+                <EventItem><FooterEventFavorite /></EventItem>
+                <EventItem><FooterEventFavorite /></EventItem>
+                <EventItem><FooterEventFavorite /></EventItem>
             </ScrollView>
         </View>
     );    
