@@ -35,9 +35,11 @@ const EventItem: React.FC<EventItemProps> = ({children}) => {
                         <Text style={styles.textBold}> Estado:<Text style={styles.text}> Minas Gerais </Text></Text>
                     </Text>
                 </View>
-                <View style={styles.section1}>
-                    <Text style={[styles.textBold , styles.TextAddress]}>Valor:<Text style={styles.text}> R$200,00</Text></Text>
+                <View style={styles.section2}>
                     <Text style={[styles.textBold , styles.TextAddress]}>Contato:<Text style={styles.text}> 98888-8888 <FontAwesome name="whatsapp" size={18} color={'#04d361'} /></Text></Text>
+                </View>
+                <View style={styles.section2}>
+                    <Text style={[styles.textBold , styles.TextAddress]}>Valor:<Text style={styles.text}> R$ 200,00 </Text></Text>
                 </View>
             </View>
             {children}

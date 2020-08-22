@@ -4,6 +4,7 @@ const styles = StyleSheet.create({
     container: {
         backgroundColor: '#8257e5',
         padding: 30,
+        paddingBottom: 20,
     },
 
     topBar: {
@@ -17,8 +18,9 @@ const styles = StyleSheet.create({
         color: '#FFF',
         fontSize: 24,
         lineHeight: 24,
-        maxWidth: 160,
-        marginVertical: 40,
+        maxWidth: 165,
+        marginVertical: 25,
+        paddingBottom: '3%',
     },
 
     header: {
