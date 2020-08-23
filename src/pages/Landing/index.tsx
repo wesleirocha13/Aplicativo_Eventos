@@ -16,7 +16,7 @@ function Landing() {
         navigate('LoginCompany');
     };
 
-    function handleNavigateToStudyPage(){ // serve para ir p/ próxima página, quando eu chamar essa função  vai direcionar para "GiveClasses"
+    function handleNavigateToEventsPage(){ // serve para ir p/ próxima página, quando eu chamar essa função  vai direcionar para "GiveClasses"
         navigate('EventTabs');
     };
 
@@ -30,7 +30,7 @@ function Landing() {
             <View style={styles.buttonsContainer}>
                 {/* Colocando array [] eu posso passar mais de um style */}
                 {/* RectButton serve para dar um efeito no botão*/} 
-                <RectButton onPress={handleNavigateToStudyPage} style={[styles.button, styles.buttonPrimary]}> 
+                <RectButton onPress={handleNavigateToEventsPage} style={[styles.button, styles.buttonPrimary]}> 
                     <Image source={studyIcon} />
                     <Text style={styles.buttonText}>Buscar Eventos</Text>
                 </RectButton>
