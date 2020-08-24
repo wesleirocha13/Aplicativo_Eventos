@@ -13,7 +13,7 @@ import PageHeaderRegister from "../../../components/PageHeaderRegister";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scrollview";
 
 function DataCompany({ navigation }) {
-  const [CNPJ, setCNPJ] = useState("");
+  const [cnpj, setcnpj] = useState("");
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [email, setEmail] = useState("");
@@ -25,17 +25,18 @@ function DataCompany({ navigation }) {
 
     if (validate()) {
       navigation.navigate("DataAddress", {
-        CNPJ,
         name,
-        description,
+        cnpj,
         email,
         password,
+        description,
+        roles: ['admin'],
       });
     }
   }
 
   function validate() {
-    if (CNPJ && name && description && email && password) {
+    if (cnpj && name && description && email && password) {
       return true;
     }
     return false;
@@ -70,10 +71,10 @@ function DataCompany({ navigation }) {
         <View style={styles.containerForm}>
           <Text style={styles.titleRegister}>01. Dados da empresa</Text>
           <TextInput
-            style={validateInput(CNPJ) ? styles.input : styles.inputDanger}
-            placeholder="CNPJ"
-            value={CNPJ}
-            onChangeText={(CNPJ) => setCNPJ(CNPJ.replace(/[^0-9]/g, ''))}
+            style={validateInput(cnpj) ? styles.input : styles.inputDanger}
+            placeholder="cnpj"
+            value={cnpj}
+            onChangeText={(cnpj) => setcnpj(cnpj.replace(/[^0-9]/g, ''))}
           />
           <TextInput
             style={validateInput(name) && validateName() ? styles.input : styles.inputDanger}

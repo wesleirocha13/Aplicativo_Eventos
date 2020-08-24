@@ -33,7 +33,7 @@ function DataAddress({ route, navigation }) {
   async function handleNavigateToRegisterSuccess() {
     if (validate()) {
       api
-        .post("companies/postteste", {
+        .post("companies/", {
           company,
           address: { cep, street, city, district, state, number },
         })
