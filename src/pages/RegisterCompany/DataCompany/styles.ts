@@ -27,6 +27,18 @@ const styles = StyleSheet.create({
         marginBottom: 5,
     },
 
+    inputDanger:{
+        height: 54,
+        backgroundColor: '#FFF',
+        borderRadius: 8,
+        justifyContent: 'center',
+        paddingHorizontal: 16,
+        marginTop: 4,
+        marginBottom: 5,
+        borderBottomColor: "red",
+        borderBottomWidth: StyleSheet.hairlineWidth
+    },
+
     okButton: {
         marginTop: 15,
         backgroundColor: '#04d361',
