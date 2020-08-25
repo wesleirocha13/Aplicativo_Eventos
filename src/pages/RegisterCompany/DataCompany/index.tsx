@@ -101,11 +101,8 @@ function DataCompany({ navigation }) {
             value={password}
             onChangeText={(password) => setPassword(password)}
           />
-          <RectButton style={styles.okButton}>
-            <Text
-              style={styles.okButtonText}
-              onPress={handleNavigateToRegister}
-            >
+          <RectButton style={styles.okButton} onPress={handleNavigateToRegister}>
+            <Text style={styles.okButtonText} >
               Próximo
             </Text>
           </RectButton>
