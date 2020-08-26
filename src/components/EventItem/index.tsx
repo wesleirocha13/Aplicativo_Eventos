@@ -1,7 +1,13 @@
-import React, { useState } from 'react';
-import { View, ImageBackground, Text, Image } from 'react-native';
+import React, { useState, useEffect } from 'react';
+import { useFocusEffect } from '@react-navigation/native';
+import { View, ImageBackground, Text, Image, Linking } from 'react-native';
 import styles from './styles';
 import { FontAwesome, Feather } from '@expo/vector-icons';
+import AsyncStorage from '@react-native-community/async-storage'
+import { RectButton } from 'react-native-gesture-handler';
+import heartOutlineIcon from '../../assets/images/icons/heart-outline.png';
+import unFavoriteIcon from '../../assets/images/icons/unfavorite.png';
+import whatsappIcon from '../../assets/images/icons/whatsapp.png';
 
 export interface Event {
     _id: string,
@@ -26,9 +32,42 @@ export interface Address {
 
 interface EventItemProps {
     event: Event
+    favorited: boolean
 }
 
-const EventItem: React.FC<EventItemProps> = ({ event }) => {
+const EventItem: React.FC<EventItemProps> = ({ event, favorited }) => {
+    const [isFavorited, setIsFavorited] = useState(favorited);
+
+    useFocusEffect(
+        React.useCallback(() => {
+            setIsFavorited(favorited);
+        }, [])
+    );
+
+    function handleLinkToWhatsapp() {
+        Linking.openURL(`whatsapp://send?phone=${event.contact}`)
+    }
+
+    async function handleToggleFavorite() {
+        const favorites = await AsyncStorage.getItem("favorites")
+        let favoritesArray = []
+
+        favorites && (favoritesArray = JSON.parse(favorites))
+
+        if (isFavorited) {
+            const favoriteIndex = favoritesArray.findIndex((favorite: Event) => {
+                return event._id === favorite._id
+            });
+            favoritesArray.splice(favoriteIndex, 1)
+            setIsFavorited(false)
+        } else {
+            !favoritesArray.includes(event) && favoritesArray.push(event)
+            setIsFavorited(true)
+        }
+
+        await AsyncStorage.setItem("favorites", JSON.stringify(favoritesArray))
+    }
+
     let date = new Date(event.date)
     return (
         <View style={styles.container}>
@@ -49,16 +88,37 @@ const EventItem: React.FC<EventItemProps> = ({ event }) => {
                 </View>
                 <View style={styles.section2}>
                     <Text style={[styles.textBold, styles.TextAddress]}>Endereço:<Text style={styles.text}> {event.address.street} </Text>
-                        <Text style={styles.textBold}> N°:<Text style={styles.text}> {event.address.number}, </Text></Text>
-                        <Text style={styles.textBold}> Bairro:<Text style={styles.text}> {event.address.district}, </Text></Text>
-                        <Text style={styles.textBold}> Cidade:<Text style={styles.text}> {event.address.city}, </Text></Text>
-                        <Text style={styles.textBold}> Estado:<Text style={styles.text}> {event.address.state} </Text></Text>
+                        <Text style={styles.text}> {event.address.number}, </Text>
+                        <Text style={styles.text}> {event.address.district}, </Text>
+                        <Text style={styles.text}> {event.address.city}, </Text>
+                        <Text style={styles.text}> {event.address.state} </Text>
                     </Text>
                 </View>
-                <View style={styles.section1}>
+                {/* <View style={styles.section1}>
                     <Text style={[styles.textBold, styles.TextAddress]}>Valor:<Text style={styles.text}> R${event.value} </Text></Text>
                     <Text style={[styles.textBold, styles.TextAddress]}>Contato:<Text style={styles.text}> {event.contact} <FontAwesome name="whatsapp" size={18} color={'#04d361'} /></Text></Text>
+                </View> */}
+
+                <View style={styles.footer}>
+                    <Text style={styles.price} >
+                        Valor: {'  '}
+                        <Text style={styles.priceValue} >R${event.value}</Text>
+                    </Text>
+                    <View style={styles.buttonsContainer}>
+                        <RectButton
+                            onPress={handleToggleFavorite}
+                            style={[styles.favoriteButton, isFavorited ? styles.favorited : {}]} >
+                            {isFavorited ? <Image source={unFavoriteIcon} /> : <Image source={heartOutlineIcon} />}
+                        </RectButton>
+                        <RectButton
+                            onPress={handleLinkToWhatsapp}
+                            style={styles.contactButton} >
+                            <Image source={whatsappIcon} />
+                            <Text style={styles.contactButtonText} >Whatsapp</Text>
+                        </RectButton>
+                    </View>
                 </View>
+
             </View>
         </View>
     );
