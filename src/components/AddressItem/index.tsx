@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { View, ImageBackground, Text, Image, Alert } from 'react-native';
 import styles from './styles';
 import { Feather } from '@expo/vector-icons';
@@ -20,9 +20,10 @@ export interface Address {
 
 interface AddressItemProps {
     address: Address,
+    changeList: any
 }
 
-const AddressItem: React.FC<AddressItemProps> = ({ address }) => {
+const AddressItem: React.FC<AddressItemProps> = ({ address, changeList }) => {
     const { navigate, goBack } = useNavigation();
     function handleNavigateToEditAddress() {
         navigate('EditDataAddress', {
@@ -55,6 +56,8 @@ const AddressItem: React.FC<AddressItemProps> = ({ address }) => {
                     id: address._id,
                 }
             });
+
+            changeList();
             Alert.alert("Exclusão realizada com sucesso!");
         } catch{
             Alert.alert("Ocorreu um erro, tente novamente");

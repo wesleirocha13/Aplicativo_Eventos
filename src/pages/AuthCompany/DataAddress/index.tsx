@@ -45,7 +45,7 @@ const DataAddress: React.FC<DataAddressProps> = ({ children }) => {
                     <Feather name="plus-circle" size={28} color={'#04d361'} />
                     <Text style={styles.addAddressLabel}>Adicionar outro endereço</Text>
                 </TouchableOpacity>
-                {addresses.map((address: Address) => <AddressItem key={address._id} address={address} />)}
+                {addresses.map((address: Address) => <AddressItem key={address._id} address={address} changeList={loadAddressCompany}/>)}
             </ScrollView >
         </View>
     );
