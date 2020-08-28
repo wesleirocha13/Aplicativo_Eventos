@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useLayoutEffect } from 'react';
 import { useFocusEffect } from '@react-navigation/native';
 import { View, ImageBackground, Text, Image, Linking } from 'react-native';
 import styles from './styles';
 import { FontAwesome, Feather } from '@expo/vector-icons';
 import AsyncStorage from '@react-native-community/async-storage'
-import { RectButton } from 'react-native-gesture-handler';
+import { RectButton, State } from 'react-native-gesture-handler';
 import heartOutlineIcon from '../../assets/images/icons/heart-outline.png';
 import unFavoriteIcon from '../../assets/images/icons/unfavorite.png';
 import whatsappIcon from '../../assets/images/icons/whatsapp.png';
@@ -31,8 +31,8 @@ export interface Address {
 }
 
 interface EventItemProps {
-    event: Event
-    favorited: boolean
+    event: Event,
+    favorited: boolean,
 }
 
 const EventItem: React.FC<EventItemProps> = ({ event, favorited }) => {
@@ -40,28 +40,35 @@ const EventItem: React.FC<EventItemProps> = ({ event, favorited }) => {
 
     useFocusEffect(
         React.useCallback(() => {
-            setIsFavorited(favorited);
-        }, [])
+            setIsFavorited(favorited)
+        }, [favorited])
     );
 
     function handleLinkToWhatsapp() {
-        Linking.openURL(`whatsapp://send?phone=${event.contact}`)
+        Linking
+            .openURL(`whatsapp://send?phone=${event.contact}`)
+            .catch(ex => {
+                console.log("problema ao tentar se conectar com o whatsapp")
+            })
     }
 
     async function handleToggleFavorite() {
         const favorites = await AsyncStorage.getItem("favorites")
-        let favoritesArray = []
+        let favoritesArray: Event[] = []
 
         favorites && (favoritesArray = JSON.parse(favorites))
 
         if (isFavorited) {
-            const favoriteIndex = favoritesArray.findIndex((favorite: Event) => {
-                return event._id === favorite._id
+            favoritesArray.forEach((fav: Event, i: number) => {
+                if (fav._id === event._id) {
+                    favoritesArray.splice(i, 1)
+                }
             });
-            favoritesArray.splice(favoriteIndex, 1)
             setIsFavorited(false)
         } else {
-            !favoritesArray.includes(event) && favoritesArray.push(event)
+            favoritesArray.every(
+                (fav: Event) => fav._id !== event._id
+            ) && favoritesArray.push(event)
             setIsFavorited(true)
         }
 
