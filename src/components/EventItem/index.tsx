@@ -8,6 +8,7 @@ import { RectButton, State } from 'react-native-gesture-handler';
 import heartOutlineIcon from '../../assets/images/icons/heart-outline.png';
 import unFavoriteIcon from '../../assets/images/icons/unfavorite.png';
 import whatsappIcon from '../../assets/images/icons/whatsapp.png';
+import moment from 'moment';
 
 export interface Event {
     _id: string,
@@ -91,7 +92,10 @@ const EventItem: React.FC<EventItemProps> = ({ event, favorited }) => {
                     </Text>
                 </View>
                 <View style={styles.section1}>
-                    <Text style={[styles.textBold, styles.TextAddress]}>Data:<Text style={styles.text}> {date.toUTCString()} </Text></Text>
+                    <Text style={[styles.textBold, styles.TextAddress]}>
+                        Data:<Text style={styles.text}> {moment(date).format('DD/MM/YYYY')}    </Text>
+                        Hora:<Text style={styles.text}> {moment(date).format('HH:mm')} </Text>
+                    </Text>
                 </View>
                 <View style={styles.section2}>
                     <Text style={[styles.textBold, styles.TextAddress]}>Endereço:<Text style={styles.text}> {event.address.street} </Text>
