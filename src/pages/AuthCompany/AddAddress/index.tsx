@@ -35,6 +35,11 @@ function AddAddress() {
                     number: number,
                     cep: cep,
 
+            },
+            {
+                params:{
+                    token: token
+                }
             });
 
             Alert.alert("Endereço cadastrado com sucesso!");
