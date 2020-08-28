@@ -4,10 +4,11 @@ import styles from './styles';
 import FooterEvent from '../../components/FooterEvent';
 import { ScrollView, TextInput, BorderlessButton, RectButton } from 'react-native-gesture-handler';
 import { Feather } from '@expo/vector-icons';
-import { useNavigation } from '@react-navigation/native';
+import { useNavigation, useFocusEffect } from '@react-navigation/native';
 import PageHeader from '../../components/PageHeader';
-import EventItem, { Event } from '../../components/EventItem';
+import CompanyEventItem, { Event } from '../../components/CompanyEventItem';
 import api from '../../services/api';
+import AsyncStorage from '@react-native-community/async-storage';
 
 interface PageHeaderProps {
 
@@ -31,19 +32,25 @@ const EventList: React.FC<PageHeaderProps> = ({ children }) => {
   };
 
   async function loadInitialEvents() {
-    const response = await api.get('events')
-    setEvents(response.data)
+    const token = await AsyncStorage.getItem('CompanyToken');
+        const response = await api.get('events/user', {
+            params: {
+                token: token,
+            }
+        });
+        setEvents(response.data);
   };
 
   async function handleFiltersSubmit() {
-    const response = await api.get('events/filter', {
+    const token = await AsyncStorage.getItem('CompanyToken');
+    const response = await api.get('events/filterAuth', {
       params: {
+        token: token,
         category: "Música",
         value: 60,
-        date: "2020-01-01"
+        //date: "2020-01-01"
       }
     })
-
     setEvents(response.data)
   }
 
@@ -54,9 +61,11 @@ const EventList: React.FC<PageHeaderProps> = ({ children }) => {
     outputRange: [0, -65],
   });
 
-  useEffect(() => {
-    loadInitialEvents()
-  }, []);
+  useFocusEffect(
+    React.useCallback(() => {
+      loadInitialEvents();
+    }, [])
+  );
 
   return (
     <View style={styles.container}>
@@ -118,7 +127,7 @@ const EventList: React.FC<PageHeaderProps> = ({ children }) => {
       </Animated.View>
       <ScrollView onScroll={(e) => { scrollY.setValue(e.nativeEvent.contentOffset.y) }}>
         <View style={styles.item}>
-          {events.map((event: Event) => <EventItem key={event._id} event={event} />)}
+          {events.map((event: Event) => <CompanyEventItem key={event._id} changeList={loadInitialEvents} event={event} />)}
         </View>
       </ScrollView>
     </View>

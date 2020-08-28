@@ -45,6 +45,55 @@ const styles = StyleSheet.create({
         fontFamily: 'Archivo_700Bold'
     },
 
+    picker:{
+        height: 54,
+        backgroundColor: '#FFF',
+        borderRadius: 8,
+        justifyContent: 'center',
+        marginTop: 4,
+        marginBottom: 4,
+    },
+
+    ContainerDataTime:{
+        
+        paddingTop: '4%',
+    },
+
+    dataTime:{
+        flexDirection: 'row',
+        justifyContent: 'space-around',
+        backgroundColor: '#FFF',
+        borderRadius: 8,
+        width: 100,
+        height: 45,
+    },
+
+    dataTimeText:{
+        fontSize: 16,
+        marginTop: '8%',
+    },
+
+    icon:{  
+        marginTop: '10%',
+    },
+
+    containerDate:{
+        flexDirection: 'row',
+        
+    },
+
+    resultData:{
+        fontSize: 16,
+        height: 45,
+        width: '65%',
+        backgroundColor: '#FFF',
+        borderRadius: 8,
+        textAlignVertical: "center",
+        paddingLeft: '3%',
+        marginLeft: '2%',
+        marginBottom: '4%',
+    },
+
 });
 
 export default styles;
