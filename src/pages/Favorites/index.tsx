@@ -7,7 +7,6 @@ import { ScrollView, TextInput, BorderlessButton, RectButton } from 'react-nativ
 import { Feather } from '@expo/vector-icons';
 import { useFocusEffect } from '@react-navigation/native';
 import AsyncStorage from '@react-native-community/async-storage'
-import api from '../../services/api';
 
 interface PageHeaderProps {
 
@@ -103,7 +102,7 @@ const Favorites: React.FC<PageHeaderProps> = ({ children }) => {
                 )}
             </PageHeader>
             <ScrollView style={styles.teacherList} contentContainerStyle={{ paddingHorizontal: 16, paddingBottom: 24 }}>
-                {favorites.map((event: Event) => <EventItem key={event._id} event={event} favorited={true} />)}
+                {favorites.map((event: Event) => <EventItem key={event._id} event={event} favorited={true}/>)}
             </ScrollView>
         </View>
     );

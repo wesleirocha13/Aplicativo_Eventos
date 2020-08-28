@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useLayoutEffect, useEffect } from 'react';
 import { View, Text } from 'react-native';
 import styles from './styles';
 import PageHeader from '../../components/PageHeader';
@@ -10,7 +10,7 @@ import AsyncStorage from '@react-native-community/async-storage';
 import api from '../../services/api';
 
 interface PageHeaderProps {
-    
+
 };
 
 const SearchEventList: React.FC<PageHeaderProps> = ({ children }) => {
@@ -25,7 +25,7 @@ const SearchEventList: React.FC<PageHeaderProps> = ({ children }) => {
         setisFiltersVisible(!isFiltersVisible); // Ele vai setar o valor contrário que está no filtro, ex:tava true agora vira false
     }
 
-    async function loadInitialEvents() {
+    async function loadEvents() {
         const response = await api.get('events')
         setEvents(response.data)
     };
@@ -33,7 +33,7 @@ const SearchEventList: React.FC<PageHeaderProps> = ({ children }) => {
     async function loadFavorites() {
         AsyncStorage.getItem('favorites').then(response => {
             if (response) {
-                const favoritedEventsIds = JSON.parse(response).map((favorited: Event) => favorited._id)
+                let favoritedEventsIds = JSON.parse(response).map((favorited: Event) => favorited._id)
                 setFavorites(favoritedEventsIds)
             }
         })
@@ -57,12 +57,15 @@ const SearchEventList: React.FC<PageHeaderProps> = ({ children }) => {
     useFocusEffect(
         React.useCallback(() => {
             loadFavorites()
-            loadInitialEvents()
         }, [])
     );
 
+    useEffect(() => {
+        loadEvents()
+    }, []);
+
     return (
-        
+
         <View style={styles.container}>
             <PageHeader
                 title="Eventos disponíveis"
@@ -111,6 +114,7 @@ const SearchEventList: React.FC<PageHeaderProps> = ({ children }) => {
             <ScrollView style={styles.teacherList} contentContainerStyle={{ paddingHorizontal: 16, paddingBottom: 24 }}>
                 {events.map((event: Event) => <EventItem key={event._id} event={event} favorited={favorites.includes(event._id)} />)}
             </ScrollView>
+            {children}
         </View>
 
     );
