@@ -1,13 +1,13 @@
-import React, { useState, useEffect, useLayoutEffect } from 'react';
+import React, { useState } from 'react';
 import { useFocusEffect } from '@react-navigation/native';
-import { View, ImageBackground, Text, Image, Linking } from 'react-native';
+import { View, Text, Image, Linking } from 'react-native';
 import styles from './styles';
-import { FontAwesome, Feather } from '@expo/vector-icons';
 import AsyncStorage from '@react-native-community/async-storage'
-import { RectButton, State } from 'react-native-gesture-handler';
+import { RectButton } from 'react-native-gesture-handler';
 import heartOutlineIcon from '../../assets/images/icons/heart-outline.png';
 import unFavoriteIcon from '../../assets/images/icons/unfavorite.png';
 import whatsappIcon from '../../assets/images/icons/whatsapp.png';
+import { scheduleNotification, cancelNotification } from '../../services/PushNotifications';
 import moment from 'moment';
 
 export interface Event {
@@ -38,6 +38,7 @@ interface EventItemProps {
 
 const EventItem: React.FC<EventItemProps> = ({ event, favorited }) => {
     const [isFavorited, setIsFavorited] = useState(favorited);
+    const [date] = useState(new Date(event.date));
 
     useFocusEffect(
         React.useCallback(() => {
@@ -66,17 +67,25 @@ const EventItem: React.FC<EventItemProps> = ({ event, favorited }) => {
                 }
             });
             setIsFavorited(false)
+            cancelNotification(event._id)
         } else {
             favoritesArray.every(
                 (fav: Event) => fav._id !== event._id
             ) && favoritesArray.push(event)
             setIsFavorited(true)
+
+            scheduleNotification({
+                id: event._id,
+                name: event.name,
+                body: event.description,
+                date: event.date
+                // date: "2020-08-30T15:09:00", // para teste
+            })
         }
 
         await AsyncStorage.setItem("favorites", JSON.stringify(favoritesArray))
     }
 
-    let date = new Date(event.date)
     return (
         <View style={styles.container}>
             <View>
