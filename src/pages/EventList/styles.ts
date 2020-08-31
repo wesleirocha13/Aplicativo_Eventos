@@ -6,17 +6,8 @@ const styles = StyleSheet.create({
         backgroundColor: '#f0f0f7',
     },
 
-    menu:{
-        elevation: 3,
-        zIndex: 1,
-    },
-
     topBarContainer: {
         backgroundColor: '#8257e5',
-        position: 'absolute',
-        left: 0,
-        top: 0,
-        right: 0,
         paddingTop: '5%',
         paddingLeft: '5%',
         paddingRight: '5%',
@@ -24,10 +15,12 @@ const styles = StyleSheet.create({
     },
 
     topBarItens: {
-        flex: 0,
+        flex: 1,
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'space-between',
+        paddingTop: '3%',
+        paddingBottom: '3%',
     },
 
     searchForm:{
@@ -39,6 +32,12 @@ const styles = StyleSheet.create({
         color: '#d4c2ff',
         fontFamily: 'Poppins_400Regular',
     },
+
+    label2: {
+        color: '#d4c2ff',
+        fontFamily: 'Poppins_400Regular',
+    },
+
     inputGroup:{
         flexDirection: 'row',
         justifyContent: 'space-between',
@@ -48,15 +47,25 @@ const styles = StyleSheet.create({
         width: '48%',
     },
 
+    inputBlock2:{
+        backgroundColor: '#FFF',
+        width: '48%',
+        height: 55,
+        borderRadius: 8,
+        marginTop: 18,
+        marginLeft: -35
+        
+    },
+
     input:{
         height: 54,
         backgroundColor: '#FFF',
         borderRadius: 8,
         justifyContent: 'center',
-        paddingHorizontal: 16,
-        marginTop: 4,
+        paddingHorizontal: 10,
         marginBottom: 16,
     },
+
     submiteButton:{
         backgroundColor: '#04d361',
         height: 56,
@@ -85,10 +94,62 @@ const styles = StyleSheet.create({
         fontFamily: 'Archivo_700Bold',
     },
 
-    item:{
+    picker:{
+        height: '48%'
+    },
+
+    dataTime:{
+        flexDirection: 'row',
+        justifyContent: 'space-around',
+        backgroundColor: '#FFF',
+        borderRadius: 8,
+        width: 92,
+        height: 50,
+    },
+
+    dataTimeText:{
+        fontSize: 16,
+        marginTop: '13%',
+    },
+
+    icon:{  
         marginTop: '15%',
     },
 
+    containerDate:{
+        flexDirection: 'row',
+        marginTop: '3%',
+    },
+
+    ContainerResultData:{
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        fontSize: 16,
+        height: 50,
+        width: '68%',
+        backgroundColor: '#FFF',
+        borderRadius: 8,
+        paddingLeft: '3%',
+        marginLeft: '3%',
+        marginBottom: '1%',
+    },
+
+    resultDataText:{
+        fontSize: 16,
+        textAlignVertical: 'center',
+    },
+
+    ContainerClean:{
+        flexDirection: 'row',
+        paddingTop: '22%',
+        marginLeft: '10%'
+    },
+
+    cleanText:{
+        fontSize: 13,
+        color: '#EE0000',
+        fontWeight: 'bold',
+    }
 });
 
 export default styles;
