@@ -18,7 +18,8 @@ export interface Event {
     date: string,
     value: number,
     contact: string,
-    tags: []
+    tags: [],
+    image: any
 }
 
 export interface Address {
@@ -80,7 +81,7 @@ const EventItem: React.FC<EventItemProps> = ({ event, changeList }) => {
     return (
         <View style={styles.container}>
             <View>
-                <Image style={styles.avatar} source={{ uri: 'https://github.com/wesleirocha13.png' }} />
+                <Image style={styles.avatar} source={{ uri: event.image || 'image', scale: 1 }} />
             </View>
             <View style={styles.title}>
                 <Text style={styles.titleText}> {event.name} </Text>
