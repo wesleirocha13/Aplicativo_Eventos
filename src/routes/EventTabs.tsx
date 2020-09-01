@@ -3,7 +3,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import SearchEventList from '../pages/SearchEventList';
 import Favorites from '../pages/Favorites/index';
 import styles from '../pages/Landing/styles';
-import { Ionicons } from '@expo/vector-icons'; // Aqui é o diretório aonde estão o icones "Ionicons" é umas das fontes de icnoes, tem outras como font awesome
+import { Ionicons, FontAwesome5 } from '@expo/vector-icons'; // Aqui é o diretório aonde estão o icones "Ionicons" é umas das fontes de icnoes, tem outras como font awesome
 
 const { Navigator, Screen } = createBottomTabNavigator();
 
@@ -44,7 +44,7 @@ function EventTabs() {
                     tabBarLabel: 'Eventos', // Serve para cololocar o nome que quiser na barra
                     tabBarIcon: ({ color, size, focused }) => {
                         return (
-                            <Ionicons name="ios-calendar" size={size} color={focused ? '#8257e5' : color} />
+                            <FontAwesome5 name="calendar-alt" size={23} color={focused ? '#8257e5' : color} />
                         );
                     }
                 }}
