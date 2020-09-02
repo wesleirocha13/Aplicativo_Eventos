@@ -68,29 +68,29 @@ function DataAddress({ route, navigation }) {
 
   return (
     <View style={styles.container}>
-      <PageHeaderRegister title="Adicione seu endereço para finalizar." />
+      <PageHeaderRegister title="Adicione o endereço para finalizar." />
       <KeyboardAwareScrollView behavior="position" enabled>
         <View style={styles.containerForm}>
           <Text style={styles.titleRegister}>02. Endereço da empresa</Text>
           <TextInput
             style={validateInput(cep) ? styles.input : styles.inputDanger}
             placeholder="CEP"
+            keyboardType="numeric"
             value={cep}
             onChangeText={(cep) => setCep(cep.replace(/[^0-9]/g, ""))}
           />
           <TextInput
             style={validateInput(street) ? styles.input : styles.inputDanger}
-            placeholder="Rua"
+            placeholder="Logradouro"
             value={street}
             onChangeText={(street) => setStreet(street)}
           />
           <TextInput
-            style={
-              validateInput(city) ? styles.input : styles.inputDanger
-            }
-            placeholder="Cidade"
-            value={city}
-            onChangeText={(city) => setCity(city)}
+            style={validateInput(number) ? styles.input : styles.inputDanger}
+            placeholder="Número"
+            keyboardType="numeric"
+            value={number}
+            onChangeText={(number) => setNumber(number.replace(/[^0-9]/g, ""))}
           />
           <TextInput
             style={
@@ -102,17 +102,19 @@ function DataAddress({ route, navigation }) {
           />
           <TextInput
             style={
+              validateInput(city) ? styles.input : styles.inputDanger
+            }
+            placeholder="Cidade"
+            value={city}
+            onChangeText={(city) => setCity(city)}
+          />
+          <TextInput
+            style={
               validateInput(state) ? styles.input : styles.inputDanger
             }
             placeholder="Estado"
             value={state}
             onChangeText={(state) => setState(state)}
-          />
-          <TextInput
-            style={validateInput(number) ? styles.input : styles.inputDanger}
-            placeholder="Numero"
-            value={number}
-            onChangeText={(number) => setNumber(number.replace(/[^0-9]/g, ""))}
           />
           <RectButton
             style={styles.okButton}

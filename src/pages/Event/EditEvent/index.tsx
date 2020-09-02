@@ -126,7 +126,7 @@ function EditEvent({ route, navigation }) {
 
     return (
         <View style={styles.container}>
-            <PageHeaderRegister title="Edição Evento." />
+            <PageHeaderRegister title="Edição Evento" />
             <KeyboardAwareScrollView behavior="position" enabled>
                 <View style={styles.containerForm}>
                     <View style={styles.inputPadding}>

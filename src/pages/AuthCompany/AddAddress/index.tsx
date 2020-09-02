@@ -56,6 +56,7 @@ function AddAddress() {
                 <View style={styles.containerForm}>
                     <TextInput style={styles.input}
                         placeholder="CEP"
+                        keyboardType="numeric"
                         value={cep}
                         onChangeText={(cep) => setCep(cep)}
                     />
@@ -66,6 +67,7 @@ function AddAddress() {
                     />
                     <TextInput style={styles.input}
                         placeholder="Número"
+                        keyboardType="numeric"
                         value={number}
                         onChangeText={(number) => setNumber(number)}
                     />

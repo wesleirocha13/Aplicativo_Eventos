@@ -72,6 +72,7 @@ function EditDataAddress({ route, navigation }) {
                         <Text style={styles.label}>CEP</Text>
                         <TextInput style={styles.input}
                             placeholder="CEP"
+                            keyboardType="numeric"
                             value={cep}
                             onChangeText={setCep}
                         />
@@ -88,6 +89,7 @@ function EditDataAddress({ route, navigation }) {
                         <Text style={styles.label}>Número</Text>
                         <TextInput style={styles.input}
                             placeholder="Número"
+                            keyboardType="numeric"
                             value={number}
                             onChangeText={setNumber}
                         />

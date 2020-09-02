@@ -180,7 +180,7 @@ function AddEvent() {
 
     return (
         <View style={styles.container}>
-            <PageHeaderRegister title="Cadastrar Evento." />
+            <PageHeaderRegister title="Adicionar Evento" />
             <KeyboardAwareScrollView behavior="position" enabled>
                 <View style={styles.containerForm}>
                     <Text style={styles.titleRegister}>Informe os dados abaixo</Text>

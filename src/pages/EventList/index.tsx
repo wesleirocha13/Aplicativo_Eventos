@@ -94,10 +94,10 @@ const EventList: React.FC<PageHeaderProps> = ({ children }) => {
       </View>
       <View style={styles.topBarContainer}>
         <View style={styles.topBarItens}>
-          <BorderlessButton style={styles.addEvent} onPress={handleNavigateToAddEvent}>
+          <TouchableOpacity style={styles.addEvent} onPress={handleNavigateToAddEvent}>
             <Feather name="plus-circle" size={28} color={'#FFF'} />
             <Text style={styles.addEventLabel}>Adicionar Evento</Text>
-          </BorderlessButton>
+          </TouchableOpacity>
           <BorderlessButton onPress={handleToggleFiltersVisible}>
             <Feather name="filter" size={25} color={'#FFF'} />
           </BorderlessButton>

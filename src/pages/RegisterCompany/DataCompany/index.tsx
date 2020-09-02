@@ -73,6 +73,7 @@ function DataCompany({ navigation }) {
           <TextInput
             style={validateInput(cnpj) ? styles.input : styles.inputDanger}
             placeholder="cnpj"
+            keyboardType="numeric"
             value={cnpj}
             onChangeText={(cnpj) => setcnpj(cnpj.replace(/[^0-9]/g, ''))}
           />
@@ -83,16 +84,16 @@ function DataCompany({ navigation }) {
             onChangeText={(name) => setName(name)}
           />
           <TextInput
-            style={styles.input}
-            placeholder="Descrição"
-            value={description}
-            onChangeText={(description) => setDescription(description)}
-          />
-          <TextInput
             style={validateInput(email) ? styles.input : styles.inputDanger}
             placeholder="Email"
             value={email}
             onChangeText={(email) => setEmail(email)}
+          />
+          <TextInput
+            style={styles.input}
+            placeholder="Descrição"
+            value={description}
+            onChangeText={(description) => setDescription(description)}
           />
           <TextInput
             secureTextEntry={true}

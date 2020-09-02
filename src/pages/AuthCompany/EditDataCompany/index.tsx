@@ -63,19 +63,20 @@ const EditDataCompany: React.FC<EditDataCompanyProps> = ({ children }) => {
             <KeyboardAwareScrollView behavior="position" enabled>
                 <View style={styles.containerForm}>
                     <View style={styles.inputPadding}>
+                        <Text style={styles.label} >CNPJ</Text>
+                        <TextInput style={styles.input}
+                            keyboardType="numeric"
+                            placeholder="CNPJ"
+                            value={cnpj}
+                            onChangeText={setcnpj}
+                        />
+                    </View>
+                    <View style={styles.inputPadding}>
                         <Text style={styles.label}>Nome</Text>
                         <TextInput style={styles.input}
                             placeholder="Nome"
                             value={name}
                             onChangeText={setName}
-                        />
-                    </View>
-                    <View style={styles.inputPadding}>
-                        <Text style={styles.label} >CNPJ</Text>
-                        <TextInput style={styles.input}
-                            placeholder="CNPJ"
-                            value={cnpj}
-                            onChangeText={setcnpj}
                         />
                     </View>
                     <View style={styles.inputPadding}>
