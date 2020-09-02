@@ -98,6 +98,16 @@ const EventItem: React.FC<EventItemProps> = ({ event, changeList }) => {
                         Hora:<Text style={styles.text}> {moment(date).format('HH:mm')} </Text>
                     </Text>
                 </View>
+                <View style={styles.section1}>
+                    <Text style={[styles.textBold, styles.TextAddress]}>
+                        Categoria:<Text style={styles.text}> {event.category}</Text>
+                    </Text>
+                </View>
+                <View style={styles.section1}>
+                    <Text style={[styles.textBold, styles.TextAddress]}>
+                        Valor:<Text style={styles.text}> R$ {event.value} </Text>
+                    </Text>
+                </View>
                 <View style={styles.section2}>
                     <Text style={[styles.textBold, styles.TextAddress]}>Endereço:<Text style={styles.text}> {event.address.street} </Text>
                         <Text style={styles.text}> {event.address.number}, </Text>
@@ -106,11 +116,6 @@ const EventItem: React.FC<EventItemProps> = ({ event, changeList }) => {
                         <Text style={styles.text}> {event.address.state} </Text>
                     </Text>
                 </View>
-                {/* <View style={styles.section1}>
-                    <Text style={[styles.textBold, styles.TextAddress]}>Valor:<Text style={styles.text}> R${event.value} </Text></Text>
-                    <Text style={[styles.textBold, styles.TextAddress]}>Contato:<Text style={styles.text}> {event.contact} <FontAwesome name="whatsapp" size={18} color={'#04d361'} /></Text></Text>
-                </View> */}
-
                 <View style={styles.footer}>
                     <TouchableOpacity style={styles.edit} onPress={handleNavigateToEditEvent}>
                         <Feather name="edit" size={20} color={'#EE0000'} />
