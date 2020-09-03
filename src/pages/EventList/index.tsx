@@ -98,9 +98,9 @@ const EventList: React.FC<PageHeaderProps> = ({ children }) => {
             <Feather name="plus-circle" size={28} color={'#FFF'} />
             <Text style={styles.addEventLabel}>Adicionar Evento</Text>
           </TouchableOpacity>
-          <BorderlessButton onPress={handleToggleFiltersVisible}>
+          <TouchableOpacity style={styles.filter} onPress={handleToggleFiltersVisible}>
             <Feather name="filter" size={25} color={'#FFF'} />
-          </BorderlessButton>
+          </TouchableOpacity>
         </View>
 
         {isFiltersVisible && (

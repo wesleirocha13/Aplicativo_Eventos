@@ -21,9 +21,21 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between',
         paddingTop: '3%',
         paddingBottom: '3%',
+        width: 320
     },
 
-    searchForm:{
+    addEvent: {
+        flexDirection: 'row',
+        height: 28,
+        width: 300
+    },
+
+    filter: {
+        width: 100,
+        height: 28
+    },
+
+    searchForm: {
         marginTop: 15,
         marginBottom: 5,
     },
@@ -38,26 +50,26 @@ const styles = StyleSheet.create({
         fontFamily: 'Poppins_400Regular',
     },
 
-    inputGroup:{
+    inputGroup: {
         flexDirection: 'row',
         justifyContent: 'space-between',
     },
 
-    inputBlock:{
+    inputBlock: {
         width: '48%',
     },
 
-    inputBlock2:{
+    inputBlock2: {
         backgroundColor: '#FFF',
         width: '48%',
         height: 55,
         borderRadius: 8,
         marginTop: 18,
         marginLeft: -35
-        
+
     },
 
-    input:{
+    input: {
         height: 54,
         backgroundColor: '#FFF',
         borderRadius: 8,
@@ -66,7 +78,7 @@ const styles = StyleSheet.create({
         marginBottom: 16,
     },
 
-    submiteButton:{
+    submiteButton: {
         backgroundColor: '#04d361',
         height: 56,
         borderRadius: 8,
@@ -76,17 +88,13 @@ const styles = StyleSheet.create({
         marginBottom: 10,
     },
 
-    submiteButtonText:{
+    submiteButtonText: {
         color: '#FFF',
         fontFamily: 'Archivo_700Bold',
         fontSize: 16,
     },
 
-    addEvent:{
-        flexDirection: 'row',
-    },
-
-    addEventLabel:{
+    addEventLabel: {
         fontSize: 16,
         alignSelf: "center",
         paddingLeft: 5,
@@ -94,11 +102,11 @@ const styles = StyleSheet.create({
         fontFamily: 'Archivo_700Bold',
     },
 
-    picker:{
+    picker: {
         height: '48%'
     },
 
-    dataTime:{
+    dataTime: {
         flexDirection: 'row',
         justifyContent: 'space-around',
         backgroundColor: '#FFF',
@@ -107,21 +115,21 @@ const styles = StyleSheet.create({
         height: 50,
     },
 
-    dataTimeText:{
+    dataTimeText: {
         fontSize: 16,
         marginTop: '13%',
     },
 
-    icon:{  
+    icon: {
         marginTop: '15%',
     },
 
-    containerDate:{
+    containerDate: {
         flexDirection: 'row',
         marginTop: '3%',
     },
 
-    ContainerResultData:{
+    ContainerResultData: {
         flexDirection: 'row',
         justifyContent: 'space-between',
         fontSize: 16,
@@ -134,18 +142,18 @@ const styles = StyleSheet.create({
         marginBottom: '1%',
     },
 
-    resultDataText:{
+    resultDataText: {
         fontSize: 16,
         textAlignVertical: 'center',
     },
 
-    ContainerClean:{
+    ContainerClean: {
         flexDirection: 'row',
         paddingTop: '22%',
         marginLeft: '10%'
     },
 
-    cleanText:{
+    cleanText: {
         fontSize: 13,
         color: '#EE0000',
         fontWeight: 'bold',
