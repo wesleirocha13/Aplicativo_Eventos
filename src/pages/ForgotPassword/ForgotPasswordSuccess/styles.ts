@@ -25,7 +25,18 @@ const styles = StyleSheet.create({
         color: '#DCDCDC',
         textAlign: 'center',
         maxWidth: 200,
-        paddingTop: 10,
+        paddingTop: 20,
+        fontSize: 18,
+    },
+
+    textPassword:{
+        fontFamily: 'Poppins_600SemiBold',
+        color: '#DCDCDC',
+        textAlign: 'center',
+        maxWidth: 200,
+        paddingTop: 7,
+        fontSize: 22,
+        textDecorationLine: "underline",
     },
 
     loginButton: {
@@ -35,7 +46,7 @@ const styles = StyleSheet.create({
         justifyContent: "center",
         alignItems: "center",
         margin: "8%",
-        marginTop: '30%',
+        marginTop: '28%',
     },
 
     loginButtonText: {
