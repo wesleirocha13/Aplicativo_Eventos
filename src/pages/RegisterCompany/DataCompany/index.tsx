@@ -42,7 +42,7 @@ function DataCompany({ navigation }) {
     return false;
   }
 
-  function validateInput(text) {
+  function validateInput(text: string) {
     if (clicked) {
       if (text) return true;
       return false;

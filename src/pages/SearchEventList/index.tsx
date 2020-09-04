@@ -1,4 +1,4 @@
-import React, { useState, useLayoutEffect, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { View, Text, Picker } from 'react-native';
 import styles from './styles';
 import PageHeader from '../../components/PageHeader';
@@ -27,7 +27,7 @@ const SearchEventList: React.FC<PageHeaderProps> = ({ children }) => {
     const exampleDate = moment(date).format('DD/MM/YYYY');
 
     function handleToggleFiltersVisible() {
-        setisFiltersVisible(!isFiltersVisible); // Ele vai setar o valor contrário que está no filtro, ex:tava true agora vira false
+        setisFiltersVisible(!isFiltersVisible);
     }
 
     function cleanDate() {
@@ -69,7 +69,6 @@ const SearchEventList: React.FC<PageHeaderProps> = ({ children }) => {
         }
 
     }
-
 
     useFocusEffect(
         React.useCallback(() => {

@@ -7,7 +7,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#f0f0f7',
     },
 
-    containerTitle:{
+    containerTitle: {
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'center',
@@ -21,12 +21,12 @@ const styles = StyleSheet.create({
         maxWidth: 180,
     },
 
-    containerForm:{
-        paddingLeft:25,
+    containerForm: {
+        paddingLeft: 25,
         paddingRight: 25,
     },
 
-    containerOptions:{
+    containerOptions: {
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'space-between',
@@ -39,7 +39,12 @@ const styles = StyleSheet.create({
         textDecorationLine: 'underline',
     },
 
-    input:{
+    rememberMeText: {
+        paddingTop: 5,
+        fontSize: 12,
+    },
+
+    input: {
         height: 54,
         backgroundColor: '#FFF',
         borderRadius: 8,
@@ -51,13 +56,13 @@ const styles = StyleSheet.create({
 
     checkboxContainer: {
         flexDirection: "row",
-      },
-      checkbox: {
+    },
+    checkbox: {
         alignSelf: "center",
-      },
-      label: {
+    },
+    label: {
         margin: 8,
-      },
+    },
 
     okButton: {
         marginVertical: 20, // O vertical sobe verticalmente e empurra tudo que tá em cima pra cima
@@ -74,12 +79,12 @@ const styles = StyleSheet.create({
         fontFamily: 'Archivo_700Bold'
     },
 
-    forgotPassword:{
+    forgotPassword: {
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'center',
         paddingTop: 10,
-        
+
     },
 });
 
