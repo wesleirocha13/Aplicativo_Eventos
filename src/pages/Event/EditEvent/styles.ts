@@ -1,99 +1,112 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: '#f0f0f7',
-    },
+  containerButton: {
+    flexDirection: "row",
+    justifyContent: "space-around",
+  },
 
-    containerForm:{
-        padding:25,
-    },
+  container: {
+    flex: 1,
+    backgroundColor: "#f0f0f7",
+  },
 
-    input:{
-        height: 54,
-        backgroundColor: '#FFF',
-        borderRadius: 8,
-        justifyContent: 'center',
-        paddingHorizontal: 16,
-        marginTop: 4,
-        marginBottom: 5,
-    },
+  containerForm: {
+    padding: 25,
+  },
 
-    inputPadding:{
-        paddingBottom: '4%',
-    },
+  input: {
+    height: 54,
+    backgroundColor: "#FFF",
+    borderRadius: 8,
+    justifyContent: "center",
+    paddingHorizontal: 16,
+    marginTop: 4,
+    marginBottom: 5,
+  },
 
-    label:{
-        fontSize: 15,
-    },
-    
-    okButton: {
-        marginVertical: 20, // O vertical sobe verticalmente e empurra tudo que tá em cima pra cima
-        backgroundColor: '#04d361',
-        height: 50,
-        alignItems: 'center',
-        justifyContent: 'center',
-        borderRadius: 8,
-        marginBottom: 10,
-        
-    },
+  inputPadding: {
+    paddingBottom: "4%",
+  },
 
-    okButtonText: {
-        color: '#FFF',
-        fontSize: 20,
-        fontFamily: 'Archivo_700Bold'
-    },
+  label: {
+    fontSize: 15,
+  },
 
-    picker:{
-        height: 54,
-        backgroundColor: '#FFF',
-        borderRadius: 8,
-        justifyContent: 'center',
-        marginTop: 4,
-        marginBottom: 4,
-    },
+  okButton: {
+    marginVertical: 20, // O vertical sobe verticalmente e empurra tudo que tá em cima pra cima
+    backgroundColor: "#04d361",
+    height: 50,
+    alignItems: "center",
+    justifyContent: "center",
+    borderRadius: 8,
+    marginBottom: 10,
+    minWidth:'48%'
 
-    ContainerDataTime:{
-        
-        paddingTop: '4%',
-    },
+  },
 
-    dataTime:{
-        flexDirection: 'row',
-        justifyContent: 'space-around',
-        backgroundColor: '#FFF',
-        borderRadius: 8,
-        width: 100,
-        height: 45,
-    },
+  okButtonText: {
+    color: "#FFF",
+    fontSize: 20,
+    fontFamily: "Archivo_700Bold",
+  },
 
-    dataTimeText:{
-        fontSize: 16,
-        marginTop: '8%',
-    },
+  picker: {
+    height: 54,
+    backgroundColor: "#FFF",
+    borderRadius: 8,
+    justifyContent: "center",
+    marginTop: 4,
+    marginBottom: 4,
+  },
 
-    icon:{  
-        marginTop: '10%',
-    },
+  ContainerDataTime: {
+    paddingTop: "4%",
+  },
 
-    containerDate:{
-        flexDirection: 'row',
-        
-    },
+  dataTime: {
+    flexDirection: "row",
+    justifyContent: "space-around",
+    backgroundColor: "#FFF",
+    borderRadius: 8,
+    width: 100,
+    height: 45,
+  },
 
-    resultData:{
-        fontSize: 16,
-        height: 45,
-        width: '65%',
-        backgroundColor: '#FFF',
-        borderRadius: 8,
-        textAlignVertical: "center",
-        paddingLeft: '3%',
-        marginLeft: '2%',
-        marginBottom: '4%',
-    },
+  dataTimeText: {
+    fontSize: 16,
+    marginTop: "8%",
+  },
 
+  icon: {
+    marginTop: "10%",
+  },
+
+  containerDate: {
+    flexDirection: "row",
+  },
+
+  resultData: {
+    fontSize: 16,
+    height: 45,
+    width: "65%",
+    backgroundColor: "#FFF",
+    borderRadius: 8,
+    textAlignVertical: "center",
+    paddingLeft: "3%",
+    marginLeft: "2%",
+    marginBottom: "4%",
+  },
+  avatar: {
+    paddingTop: "50%",
+    height: 50,
+    width: "100%",
+    borderRadius: 10,
+    backgroundColor: "#eee",
+    borderColor: "#ccc",
+    borderWidth: 1,
+    resizeMode: "cover",
+  }
 });
 
 export default styles;
