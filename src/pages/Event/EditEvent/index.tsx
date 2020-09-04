@@ -46,7 +46,7 @@ export interface Event {
   contact: string;
 }
 
-function EditEvent({ route, navigation }) {
+function EditEvent({ route }) {
   const { idEvent } = route.params;
   const { goBack } = useNavigation();
   const [name, setName] = useState("");
@@ -267,6 +267,7 @@ function EditEvent({ route, navigation }) {
               />
               {addresses.map((address: Address) => (
                 <Picker.Item
+                  key={address._id as string}
                   label={address.street + " N°:" + address.number}
                   value={address._id}
                 />

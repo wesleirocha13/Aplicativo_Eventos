@@ -247,6 +247,7 @@ function AddEvent() {
                             />
                             {addresses.map((address: Address) => (
                                 <Picker.Item
+                                    key={address._id as string}
                                     label={address.street + " N°:" + address.number}
                                     value={address._id}
                                 />
