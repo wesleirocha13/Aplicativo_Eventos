@@ -8,13 +8,13 @@
     "splash": {
       "image": "./src/assets/images/splash.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#8257E5"
     },
     "notification": {
       "icon": "./src/assets/images/notification-icon.png",
       "color": "#8257E5",
       "androidMode": "default",
-      "androidCollapsedTitle": "Onde è?"
+      "androidCollapsedTitle": "Event Book"
     },
     "updates": {
       "fallbackToCacheTimeout": 0
