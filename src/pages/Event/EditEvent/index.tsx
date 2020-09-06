@@ -60,6 +60,8 @@ function EditEvent({ route }) {
   const [showTime, setShowTime] = useState(false);
   const [date, setDate] = useState(new Date());
   const [selectedImage, setSelectedImage] = useState({ uri: "image" });
+  const [inserted, setInserted] = useState(false);
+  const [remove, setRemoved] = useState(false);
 
   async function loadEvent() {
     const token = await AsyncStorage.getItem("CompanyToken");
@@ -99,6 +101,10 @@ function EditEvent({ route }) {
     }, [])
   );
 
+  function removeImage() {
+    setSelectedImage({ uri: "image" });
+    setRemoved(true);
+  }
   async function saveEditions() {
     if (selectedValueAddress == "addressNull") {
       Alert.alert("Escolha um endereço");
@@ -107,7 +113,7 @@ function EditEvent({ route }) {
     } else {
       try {
         const token = await AsyncStorage.getItem("CompanyToken");
-        if (selectedImage.uri && selectedImage.uri != "image") {
+        if (selectedImage.uri && selectedImage.uri != "image" && inserted && !remove) {
           const image = await fetch(selectedImage.uri);
           const blob = await image.blob();
 
@@ -131,7 +137,7 @@ function EditEvent({ route }) {
             });
           };
         } else {
-          const response = await api.put("events/", {
+          const hash = {
             token: token,
             id: idEvent,
             name,
@@ -141,13 +147,18 @@ function EditEvent({ route }) {
             value,
             contact,
             address: selectedValueAddress,
-            image: "",
-          });
+          };
+          if (remove) hash.remove = true;
+          const response = await api.put("events/", hash);
         }
 
+        setInserted(false);
+        setRemoved(false);
         Alert.alert("Alteração realizada com sucesso!");
         goBack();
       } catch {
+        setInserted(false);
+        setRemoved(false);
         Alert.alert("Ocorreu um erro, tente novamente");
       }
     }
@@ -181,6 +192,7 @@ function EditEvent({ route }) {
       return;
     }
 
+    setInserted(true);
     setSelectedImage({ uri: pickerResult.uri });
   }
 
@@ -328,12 +340,7 @@ function EditEvent({ route }) {
             <RectButton style={styles.okButton} onPress={openImagePickerAsync}>
               <Text style={styles.okButtonText}>Inserir foto</Text>
             </RectButton>
-            <RectButton
-              style={styles.okButton}
-              onPress={(state) => {
-                setSelectedImage({ uri: "image" });
-              }}
-            >
+            <RectButton style={styles.okButton} onPress={removeImage}>
               <Text style={styles.okButtonText}>Remover foto</Text>
             </RectButton>
           </View>
