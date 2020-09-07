@@ -3,7 +3,7 @@ import { View, ImageBackground, Text, KeyboardAvoidingView, Image } from 'react-
 import styles from './styles';
 import { RectButton, TextInput, TouchableOpacity } from 'react-native-gesture-handler';
 import { useNavigation, Link, DrawerActions, useFocusEffect } from '@react-navigation/native';
-import { Feather } from '@expo/vector-icons';
+import { Feather, FontAwesome5 } from '@expo/vector-icons';
 import api from '../../../services/api';
 import AsyncStorage from '@react-native-community/async-storage';
 
@@ -49,7 +49,9 @@ const DataCompany: React.FC<DataCompanyProps> = ({ children }) => {
             {children}
             <View style={styles.elementsCenter}>
                 {/* Quando for usar uma imagem externa (Pegar por URL) tem que fazer desse jeito */}
-                <Image style={styles.avatar} source={{ uri: 'https://github.com/wesleirocha13.png' }} />
+                <View style={styles.avatar}>
+                <FontAwesome5 name="building" size={60} color={'white'} />
+                </View>
                 <Text style={styles.nameCompany}> {name}</Text>
             </View>
             <View style={styles.elementsRight}>

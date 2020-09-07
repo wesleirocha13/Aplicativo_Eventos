@@ -20,10 +20,12 @@ const styles = StyleSheet.create({
     },
     
     avatar: {
-        width: 120,
-        height: 120,
+        justifyContent: 'center',
+        paddingLeft: 28,
+        width: 110,
+        height: 110,
         borderRadius: 60,
-        backgroundColor: '#eee',
+        backgroundColor: '#8257E5',
     },
 
     nameCompany:{
@@ -48,7 +50,7 @@ const styles = StyleSheet.create({
 
     okButton: {
         margin: "5%",
-        marginTop: "2%",
+        marginTop: "5%",
         backgroundColor: '#04d361',
         height: 50,
         alignItems: 'center',
